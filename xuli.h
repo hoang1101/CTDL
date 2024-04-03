@@ -18,7 +18,11 @@ void setID(int id,int x1,int y1, int x2,int y2,unsigned short int ** mapID){
 		
 }
 
+void resetMapID(unsigned short int ** mapID){
+	
+		setID(0,0,0,WD_WIDTH,WD_HEIGHT,mapID);
 
+}
 
 void resetMH(unsigned short int **mapID){
 	
@@ -245,6 +249,7 @@ void veKhungCongCuMB(unsigned short int **mapID ){
 }
 
 void manhinhmaybay(danhsachmaybay &dsmb,unsigned short int **mapID,int &idnext,bool isFindMB){
+
 	maybay mb;
 	resetmb(mb);
 	bool kt=0;
@@ -574,12 +579,13 @@ void manhinhmaybay(danhsachmaybay &dsmb,unsigned short int **mapID,int &idnext,b
 			          	}
 						else{
 							idnext=idtmp;
+							
 		        			return;
 							}
 						}
 					
 				default:
-						cout<<"hihi";
+					
 					if (kbhit()){    // Bat Phim Khi Chua CLick Vao EdiitText
 					chartemp=getch();
 					break;

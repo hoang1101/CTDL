@@ -21,10 +21,11 @@ int main(int argc, char *argv[])
 	
 	
     unsigned short int **mapID = new unsigned short int *[WD_HEIGHT];
-	for(int i=0;i< WD_HEIGHT;i++)
+	for(int i=0;i<= WD_HEIGHT;i++)
 	 	mapID[i]= new unsigned short int[WD_WIDTH];
 	 	
-//	setID(0,0,0,WD_WIDTH,WD_HEIGHT,mapID);	
+	 	
+	resetMapID(mapID);
 
 
 	
@@ -55,6 +56,7 @@ int main(int argc, char *argv[])
 	while(true){
 		
 		id=0;
+		cout<<"=========";
 		if(ismouseclick(WM_LBUTTONDOWN)){
 			getmouseclick(WM_LBUTTONDOWN, x, y);
 			id = mapID[y][x];
@@ -65,22 +67,28 @@ int main(int argc, char *argv[])
 		place:
 		switch(id){
 			case ID_MAYBAY:
+				cout<< ID_MAYBAY;
+				
 				resetMH(mapID);
 				taoButton(0,0,100,250,175,mapID,WHITE,BLACK,WHITE,"MAY BAY");
-//				manhinhmaybay(dsmb,mapID,idnext,false);
+				manhinhmaybay(dsmb,mapID,idnext,false);
+				
 				veKhungDSMB(mapID);
 				taoButton(ID_MAYBAY,0,100,250,175,mapID,LIGHTGREEN,BLACK,LIGHTGREEN,"MAY BAY");
+			
 			    id= idnext;
+			    
 			    goto place;
 				break;
 				
 			case ID_CHUYENBAY:
+				cout<< ID_CHUYENBAY;
 				resetMH(mapID);
 				taoButton(0,0,225,250,300,mapID,WHITE,BLACK,WHITE,"CHUYEN BAY");
-				vekhungdscb(mapID);
+
 				taoButton(ID_CHUYENBAY,0,225,250,300,mapID,LIGHTGREEN,BLACK,LIGHTGREEN,"CHUYEN BAY");
 				id= idnext;
-			    goto place;			
+					
 				break;
 			case ID_VE:
 				resetMH(mapID);
